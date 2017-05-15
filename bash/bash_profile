@@ -1,0 +1,3 @@
+eval "$(rbenv init -)"
+export PS1="\[\e[33m\]\u\[\e[m\] \w \[\e[33m\]\\$\[\e[m\] "
+alias vim='mvim -v'   

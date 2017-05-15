@@ -1,0 +1,166 @@
+if has('mouse')
+  set mouse=a
+endif             " enables mouse use
+
+set nocompatible              " be iMproved, required filetype off
+" required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'milkypostman/vim-togglelist'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" When started as "evim", evim.vim will already have done these settings.
+if v:progname =~? "evim"
+  finish
+endif
+
+" Backup removals.
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+set ruler		" show the cursor position all the time
+set incsearch		" search as you type
+set hlsearch    " highlights search
+
+inoremap <C-U> <C-G>u<C-U>
+
+syntax enable
+colorscheme jamescolor
+let g:airline_theme='cool' " airline theme setting
+set laststatus=2 " makes airline appear everytime
+
+" Indentation
+set tabstop=4
+set softtabstop=4 	" soft tabs are the spaces that <TAB> takes
+set expandtab	    	" this makes all tabs into spaces
+set shiftwidth=2    " I'm guessing this is the shift on autoindent
+set autoindent      " sets autoindent on
+" lang specific indentation is written in lang files under customized foloder
+" for vim ~/.vim/ftplugin
+
+" UI stuff
+set number		" shows which line you're on
+set showcmd		" shows last command in bottom right
+set cursorline		" puts highlight or underline on the line you're currently on
+set lazyredraw		" not sure what redraw is, but should make it faster accodring to dougs
+set showmatch     " shows matching brackets
+
+let mapleader = "g"
+
+" quick way to delete all trailing white spaces
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" map t and T to paste from and yank to system clipboard
+nmap <C-T> "+p
+
+" tab through open buffers and open/close new buffer
+nnoremap <C-U> :bn<CR>
+nnoremap <C-C> :bd<CR>
+
+" Remap keys for split pane navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <leader>m <C-W><C-_>
+nnoremap <leader>= <C-W><C-=>
+
+" Make <leader+#> comment block in ruby
+nnoremap <leader># 0{j<C-V>}kI#<space><C-[>
+
+" quick fix navigation mapping
+nnoremap <silent> gj :cnext<CR>
+nnoremap <silent> gk :cprev<CR>
+
+
+set splitbelow
+set splitright
+
+" The Silver Searcher 92-110[
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" ctrl-o to search buffers
+nnoremap <C-O> :CtrlPBuffer<CR>
+
+" bind K to grep word under cursor
+nnoremap K :silent grep! "\b\s?<C-R><C-W>\b"<CR>:cw<CR>:redr!<CR>
+
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+
+" binds matcher with ctrl-p
+"  if executable('matcher')
+"      let g:ctrlp_match_func = { 'match': 'GoodMatch' }
+"
+"      function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
+"        " Create a cache file if not yet exists
+"        let cachefile = ctrlp#utils#cachedir().'/matcher.cache'
+"        if !( filereadable(cachefile) && a:items == readfile(cachefile) )
+"          call writefile(a:items, cachefile)
+"        endif
+"        if !filereadable(cachefile)
+"          return []
+"        endif
+"
+"        " a:mmode is currently ignored. In the future, we should probably do
+"        " something about that. the matcher behaves like "full-line".
+"        let cmd = 'matcher --limit '.a:limit.' --manifest '.cachefile.' '
+"        if !( exists('g:ctrlp_dotfiles') && g:ctrlp_dotfiles )
+"          let cmd = cmd.'--no-dotfiles '
+"        endif
+"        let cmd = cmd.a:str
+"
+"        return split(system(cmd), "\n")
+"
+"      endfunction
+"  end
+
+" nerdtree toggle mapping
+map <C-n> :NERDTreeToggle<CR>
+
+" close vim if nerdtree is last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+autocmd Filetype html,eruby,xml,xsl source ~/.vim/scripts/closetag.vim 
+
+nnoremap <leader>9 :let g:closetag_html_style = 1<CR>:source ~/.vim/scripts/closetag.vim<CR>
+
+" closes vim if quickfix window is last window
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+aug END
+
+" site for all unbound key mappings
+" https://hea-www.harvard.edu/~fine/Tech/vi.html
