@@ -21,6 +21,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'milkypostman/vim-togglelist'
+Plugin 'moll/vim-bbye'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -80,7 +81,7 @@ nnoremap <C-T> "+p
 
 " tab through open buffers and open/close new buffer
 nnoremap <C-U> :bn<CR>
-nnoremap <C-C> :bd<CR>
+nnoremap <C-C> :Bdelete<CR>
 
 " Remap keys for split pane navigation
 nnoremap <C-J> <C-W><C-J>
@@ -97,11 +98,15 @@ nnoremap <leader># 0{j<C-V>}kI#<space><C-[>
 nnoremap <silent> gj :cnext<CR>
 nnoremap <silent> gk :cprev<CR>
 
+" buffer closing options
+set hidden
+set confirm
 
+" how split panes default view
 set splitbelow
 set splitright
 
-" The Silver Searcher 92-110[
+" The Silver Searcher
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -156,9 +161,8 @@ map <C-n> :NERDTreeToggle<CR>
 " close vim if nerdtree is last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" use <C-=> to close tag. Dependency in source script
 autocmd Filetype html,eruby,xml,xsl source ~/.vim/scripts/closetag.vim 
-
-nnoremap <leader>9 :let g:closetag_html_style = 1<CR>:source ~/.vim/scripts/closetag.vim<CR>
 
 " closes vim if quickfix window is last window
 aug QFClose
