@@ -72,6 +72,11 @@ if exists("syntax_on")
   hi rubyStringEscape guifg=LightYellow3 guibg=Black       ctermfg=172         ctermbg=233       gui=NONE      cterm=NONE
   hi rubyIdentifier   guifg=LightYellow3 guibg=Black       ctermfg=136         ctermbg=233       gui=NONE      cterm=NONE
 
+  " indent lines with vim-indent-guides
+  let g:indent_guides_auto_colors=0
+  hi IndentGuidesOdd  guibg=Grey7   ctermbg=233
+  hi IndentGuidesEven guibg=Grey15   ctermbg=235
+
   " 29 is SpringGreen4, 23 is DeepSkyBlue4, 84 is SeaGreen1, 117 is SkyBlue1
   " 172 is Orange, 190 is Yellow3, 253 is gray85, 220 is Orange(replaced 172) 
   " 57 is BlueViolet, 129 is Purple(replaced 57), 136 is Dark Golden Rod,
