@@ -76,19 +76,26 @@ set showmatch     " shows matching brackets
 let mapleader = "g"
 
 " quick way to delete all trailing white spaces
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>:nohl<CR>
+
+" select all
+nnoremap <leader>a GVgg
 
 " quick mapping to search and replace word under cursor
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 nnoremap <leader>S :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " map t and T to paste from and yank to system clipboard
-nnoremap <C-T> "+p
+nnoremap <leader>v "+pkdd
+vnoremap <leader>c "+y
 
 " tab through open buffers and open/close new buffer
 nnoremap <C-U> :bn<CR>
 nnoremap <C-y> :bp<CR>
 nnoremap <leader><CR> :Bdelete<CR>
+" ✠ is <shift-CR> with UniCode U+2720 set in Iterm Key Mappings
+nnoremap ✠ :Bdelete<CR>:q<CR>
+nnoremap <leader>✠ :Bdelete!<CR>:q<CR>
 
 " Remap keys for split pane navigation
 nnoremap <C-J> <C-W><C-J>
@@ -104,6 +111,9 @@ nnoremap <leader># 0{j<C-V>}kI#<space><C-[>
 " quick fix navigation mapping
 nnoremap <silent> gj :lnext<CR>
 nnoremap <silent> gk :lprev<CR>
+
+" turn off search highlights
+nnoremap <leader>n :nohl<CR>
 
 " buffer closing options
 set hidden
