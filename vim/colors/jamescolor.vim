@@ -45,32 +45,36 @@ if exists("syntax_on")
   hi CursorColumn NONE                                                                             gui=reverse   cterm=reverse
   hi CursorLine   NONE                                                                             gui=underline cterm=underline
   hi ColorColumn  NONE                                                                             gui=reverse   cterm=reverse
-  hi MatchParen        guifg=Red         guibg=Black       ctermfg=DarkRed     ctermbg=darkgray         gui=NONE      cterm=NONE
-  hi Normal            guifg=gray85      guibg=Black       ctermfg=253         ctermbg=233       gui=NONE      cterm=NONE
-  hi Comment           guifg=darkgray    guibg=Black       ctermfg=darkgray    ctermbg=233          gui=NONE      cterm=NONE
-  hi Constant          guifg=Magenta     guibg=Black       ctermfg=117         ctermbg=233          gui=NONE      cterm=NONE
-  hi Special           guifg=Magenta     guibg=Black       ctermfg=57          ctermbg=233          gui=NONE      cterm=NONE
-  hi Identifier        guifg=DarkOrange3 guibg=Black       ctermfg=220         ctermbg=233          gui=NONE      cterm=NONE
-  hi Statement         guifg=SkyBlue1    guibg=Black       ctermfg=190         ctermbg=233          gui=NONE      cterm=NONE
-  hi PreProc           guifg=LightBlue   guibg=Black       ctermfg=LightBlue   ctermbg=233          gui=NONE      cterm=NONE
-  hi Type              guifg=LightYellow guibg=Black       ctermfg=Yellow      ctermbg=233          gui=NONE      cterm=NONE
-  hi Underlined        guifg=LightBlue   guibg=Black       ctermfg=LightBlue   ctermbg=233          gui=underline cterm=underline
-  hi Ignore            guifg=Black       guibg=Black       ctermfg=Black       ctermbg=233          gui=NONE      cterm=NONE
+  hi MatchParen        guifg=Red         guibg=Black       ctermfg=DarkRed     ctermbg=darkgray    gui=NONE      cterm=NONE
+  hi Normal            guifg=gray85      guibg=Black       ctermfg=253         ctermbg=233         gui=NONE      cterm=NONE
+  hi Comment           guifg=darkgray    guibg=Black       ctermfg=darkgray    ctermbg=233         gui=NONE      cterm=NONE
+  hi Constant          guifg=Magenta     guibg=Black       ctermfg=117         ctermbg=233         gui=NONE      cterm=NONE
+  hi Special           guifg=Magenta     guibg=Black       ctermfg=57          ctermbg=233         gui=NONE      cterm=NONE
+  hi Identifier        guifg=DarkOrange3 guibg=Black       ctermfg=220         ctermbg=233         gui=NONE      cterm=NONE
+  hi Statement         guifg=SkyBlue1    guibg=Black       ctermfg=190         ctermbg=233         gui=NONE      cterm=NONE
+  hi PreProc           guifg=LightBlue   guibg=Black       ctermfg=LightBlue   ctermbg=233         gui=NONE      cterm=NONE
+  hi Type              guifg=LightYellow guibg=Black       ctermfg=Yellow      ctermbg=233         gui=NONE      cterm=NONE
+  hi Underlined        guifg=LightBlue   guibg=Black       ctermfg=LightBlue   ctermbg=233         gui=underline cterm=underline
+  hi Ignore            guifg=Black       guibg=Black       ctermfg=Black       ctermbg=233         gui=NONE      cterm=NONE
   hi Error             guifg=Black       guibg=Red         ctermfg=Black       ctermbg=Red         gui=NONE      cterm=NONE
-  hi Todo              guifg=Red         guibg=Black       ctermfg=Red         ctermbg=233          gui=NONE      cterm=NONE
+  hi Todo              guifg=Red         guibg=Black       ctermfg=Red         ctermbg=233         gui=NONE      cterm=NONE
   
 
   " specific colors
   
-  hi Boolean           guifg=Blue        guibg=Black       ctermfg=84          ctermbg=233       gui=NONE      cterm=NONE
-  hi Conditional       guifg=LightYellow3 guibg=Black      ctermfg=190         ctermbg=233       gui=NONE      cterm=NONE
-  hi Function          guifg=DeepSkyBlue  guibg=Black      ctermfg=23          ctermbg=233       gui=NONE      cterm=bold
-  hi Repeat            guifg=LightYellow3 guibg=Black      ctermfg=190         ctermbg=233       gui=NONE      cterm=NONE
-  hi Keyword           guifg=LightYellow3 guibg=Black      ctermfg=190         ctermbg=233       gui=NONE      cterm=NONE
-  hi Operator           guifg=LightYellow3 guibg=Black     ctermfg=190         ctermbg=233       gui=NONE      cterm=NONE
-  hi Number           guifg=LightYellow3 guibg=Black       ctermfg=129         ctermbg=233       gui=NONE      cterm=NONE
-  hi rubyStringEscape guifg=LightYellow3 guibg=Black       ctermfg=172         ctermbg=233       gui=NONE      cterm=NONE
-  hi rubyIdentifier   guifg=LightYellow3 guibg=Black       ctermfg=136         ctermbg=233       gui=NONE      cterm=NONE
+  hi Tag               guifg=Green        guibg=Black       ctermfg=84          ctermbg=233       gui=NONE      cterm=NONE
+  hi xmlTag            guifg=Green        guibg=Black       ctermfg=84          ctermbg=233       gui=NONE      cterm=NONE
+  hi xmlTagName        guifg=Green        guibg=Black       ctermfg=84          ctermbg=233       gui=NONE      cterm=NONE
+  hi xmlEndTag         guifg=Green        guibg=Black       ctermfg=84          ctermbg=233       gui=NONE      cterm=NONE
+  hi Boolean           guifg=Green        guibg=Black       ctermfg=84          ctermbg=233       gui=NONE      cterm=NONE
+  hi Conditional       guifg=LightYellow3 guibg=Black       ctermfg=190         ctermbg=233       gui=NONE      cterm=NONE
+  hi Function          guifg=DeepSkyBlue  guibg=Black       ctermfg=23          ctermbg=233       gui=NONE      cterm=bold
+  hi Repeat            guifg=LightYellow3 guibg=Black       ctermfg=190         ctermbg=233       gui=NONE      cterm=NONE
+  hi Keyword           guifg=LightYellow3 guibg=Black       ctermfg=190         ctermbg=233       gui=NONE      cterm=NONE
+  hi Operator          guifg=LightYellow3 guibg=Black       ctermfg=190         ctermbg=233       gui=NONE      cterm=NONE
+  hi Number            guifg=LightYellow3 guibg=Black       ctermfg=129         ctermbg=233       gui=NONE      cterm=NONE
+  hi rubyStringEscape  guifg=LightYellow3 guibg=Black       ctermfg=172         ctermbg=233       gui=NONE      cterm=NONE
+  hi rubyIdentifier    guifg=LightYellow3 guibg=Black       ctermfg=136         ctermbg=233       gui=NONE      cterm=NONE
 
   " indent lines with vim-indent-guides
   let g:indent_guides_auto_colors=0
