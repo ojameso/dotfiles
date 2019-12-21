@@ -1,18 +1,23 @@
+#symlinks for vimrc bashrc
 #git
 #homebrew
-#rbenv
+#brew install rbenv
+#brew install neovim
+#neovim requires python3
+
+#add vundle
+#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#:PluginInstall in vim
+#need to run install.sh in bundle/nvim-javascript/
+#silversearch requires brew installation
 
 #bash4
 #bashcompletion@2
-
-#silversearch requires brew installation
-#neovim requires python3
 
 #postgres
 #mysql
 #pgcli for psql syntax highlighting
 
-#symlinks for vimrc bashrc
 #git completion
 
 #ssh
