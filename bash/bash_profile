@@ -4,10 +4,12 @@ parse_git_branch() {
 }
 export PS1="\[\e[31m\]Ҳ\[\e[m\] \W\[\e[36m\]\$(parse_git_branch) \[\e[m\]\[\e[31m\]\\$\[\e[m\] "
 alias vim='nvim' 
+alias vi='nvim' 
 alias v='nvim' 
 alias bspec='bundle exec rspec' 
 alias brake='bundle exec rake' 
 alias gs='git status' 
+alias gp='git status' 
 alias gc='git commit' 
 alias gr='git rebase' 
 alias gnew='git checkout master && git checkout -b' 

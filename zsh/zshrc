@@ -1,0 +1,22 @@
+autoload -Uz compinit && compinit
+eval "$(rbenv init -)"
+function parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/-[\1]/'
+}
+setopt prompt_subst
+autoload -U colors && colors
+PROMPT="%{$fg[red]%}Ҳ%{$reset_color%} %~\$(parse_git_branch) %{$fg[red]%}\\$%{$reset_color%} "
+alias vim='nvim' 
+alias vi='nvim' 
+alias v='nvim' 
+alias gs='git status' 
+alias gp='git pull' 
+alias gc='git checkout' 
+alias gr='git rebase' 
+alias gnew='git checkout master && git checkout -b' 
+
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+. ~/.zsh_local
