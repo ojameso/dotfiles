@@ -21,10 +21,10 @@ cp ~/.vimrc .config/nvim/init.vim
 #when doing gem install rails and getting nokogiri issues
 #try `brew unlink gcc`
 #symlink files
-#ln -s ~/.vimrc ~/dotfiles/vim/vimrc
-#ln -s ~/.vim ~/dotfiles/vim
-#ln -s ~/.gitconfig ~/dotfiles/git/gitconfig
-#ln -s ~/.zshrc ~/dotfiles/zsh/zshrc
+#ln -s ~/dotfiles/vim/vimrc ~/.vimrc 
+#ln -s ~/dotfiles/vim ~/.vim 
+#ln -s ~/dotfiles/git/gitconfig ~/.gitconfig 
+#ln -s ~/dotfiles/zsh/zshrc ~/.zshrc 
 
 #create .vim dir as well as...
 mkdir ~/.vim/backup
