@@ -1,5 +1,4 @@
 autoload -Uz compinit && compinit
-eval "$(rbenv init -)"
 function parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/-[\1]/'
 }
@@ -18,5 +17,13 @@ alias gnew='git checkout master && git checkout -b'
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 . ~/.zsh_local
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/james.hong/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

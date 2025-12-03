@@ -15,16 +15,16 @@ python3 get-pip.py
 rm get-pip.py
 
 #neovim requires config
-cp ~/.vimrc .config/nvim/init.vim
-#symlink colors in nvim config dir if can't find
+#ln -s ~/.vimrc .config/nvim/init.vim
+#ln -s ~/.vim/colors .config/nvim/colors
 
 #when doing gem install rails and getting nokogiri issues
 #try `brew unlink gcc`
 #symlink files
-#ln -s ~/.vimrc ~/dotfiles/vim/vimrc
-#ln -s ~/.vim ~/dotfiles/vim
-#ln -s ~/.gitconfig ~/dotfiles/git/gitconfig
-#ln -s ~/.zshrc ~/dotfiles/zsh/zshrc
+#ln -s ~/dotfiles/vim/vimrc ~/.vimrc 
+#ln -s ~/dotfiles/vim ~/.vim 
+#ln -s ~/dotfiles/git/gitconfig ~/.gitconfig 
+#ln -s ~/dotfiles/zsh/zshrc ~/.zshrc 
 
 #create .vim dir as well as...
 mkdir ~/.vim/backup
@@ -56,6 +56,8 @@ git config --global --add url."git@github.com:".insteadOf "https://github.com/"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #:PluginInstall in vim
 #:UpdateRemotePlugins in vim
+# install npm
+#brew install node
 #run install.sh in bundle/nvim-javascript/
 
 #install silver searcher

@@ -37,6 +37,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plugin 'etordera/deoplete-rails'
 Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'kcl-lang/kcl.nvim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -86,6 +87,9 @@ set showmatch     " shows matching brackets
 
 let mapleader = "g"
 
+" quick json pretty print
+nnoremap <leader>J :%!jq .<CR>
+
 " quick way to delete all trailing white spaces
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>:nohl<CR>
 
@@ -130,6 +134,8 @@ nnoremap <silent> gk :lprev<CR>
 
 " turn off search highlights
 nnoremap <leader>n :nohl<CR>
+
+nnoremap <leader>T :! make tiab-sync<CR>
 
 " buffer closing options
 set hidden
